@@ -1,0 +1,42 @@
+*, html{
+    margin: 0 !important;
+    padding: 0;
+}
+body{
+    margin:0;
+    padding:0;
+    text-align:center;
+}
+header {
+    margin-top:0px;
+    background-color: grey;
+    height:60px;
+    padding: 25px 0;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+#titulo{
+    font-family:Helvetica;
+}
+.p5Canvas{
+    margin-top:150px;
+}
+#faixa-botoes{
+    margin-top:10px;
+}
+#botao{
+    padding: 5px;
+    margin-top:15px !important;
+    margin-left:5px !important;
+}
+#ok_btn{
+    padding: 5px;
+    width:200px;
+    margin-bottom: 20px !important;
+}
