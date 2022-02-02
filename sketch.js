@@ -18,9 +18,11 @@ let label = '';
 
 function setup() {
     // Cria canvas
-    var cnv = createCanvas(300, 300);
+    var cnv = createCanvas(350, 300);
     cnv.style('margin-left', '50%');
     cnv.style('margin-top', '5%');
+    let p = createP('<br>Cadastre suas fotos para treinamento do modelo:');
+    p.style('font-size', '16px');
     // Cria botões
     btn_up = criaBotao(btn_up, 0);
     btn_down = criaBotao(btn_down, 1);
@@ -28,8 +30,13 @@ function setup() {
     btn_right = criaBotao(btn_right, 3);
     btn_front = criaBotao(btn_front, 4);
 
-    ok_btn = select('#ok_btn');
-    ok_btn.mousePressed(confirmaBtn);
+    // Gambiarra (corrigir melhorando CSS)
+    let pg = createP("<br><br><br>");
+
+    // Botão para treinar modelo
+    train_btn = select('#train_btn');
+    train_btn.mousePressed(treinaModelo);
+
     btn_up.mousePressed(addExample);
     btn_down.mousePressed(addExample);
     btn_left.mousePressed(addExample);
@@ -61,7 +68,7 @@ function draw() {
     text(status_txt, 95, height - 10);
      
     if (ready) {
-      image(video, 0, 0, 300,270);
+      image(video, 0, 0, 350, 270);
     }
 
     textSize(20);
@@ -73,7 +80,7 @@ function draw() {
 
 function criaBotao(var_btn, dir){
     var_btn = createButton(name_btn[dir]);
-    var_btn.id("botao");
+    var_btn.id("botao"); //talvez seja melhor usar classe
     return var_btn;
 }
 
@@ -87,7 +94,6 @@ function confirmaBtn(){
     }
     estado = 1 - estado;
 
-    treinaModelo();
 }
 
 function addExample() {
@@ -105,7 +111,7 @@ function addExample() {
 function loaded() {
   pixelBrain.train(
     {
-      epochs: 10,
+      epochs: 50,
     },
     finishedTraining
   );
@@ -114,7 +120,7 @@ function treinaModelo(){
     pixelBrain.normalizeData();
     pixelBrain.train(
       {
-        epochs: 10,
+        epochs: 50,
       },
       finishedTraining
     );

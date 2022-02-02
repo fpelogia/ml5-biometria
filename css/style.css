@@ -30,12 +30,12 @@ footer {
 #faixa-botoes{
     margin-top:10px;
 }
-#botao{
+#botao, #start_pw, #end_pw{
     padding: 5px;
     margin-top:15px !important;
     margin-left:5px !important;
 }
-#ok_btn{
+.ok_btn{
     padding: 5px;
     width:200px;
     margin-bottom: 20px !important;
