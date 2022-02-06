@@ -16,6 +16,10 @@ let ready = false;
 let pixelBrain;
 let label = '';
 
+
+let start_cadastro_senha;
+let x;
+
 function setup() {
     // Cria canvas
     var cnv = createCanvas(350, 300);
@@ -30,6 +34,11 @@ function setup() {
     btn_right = criaBotao(btn_right, 3);
     btn_front = criaBotao(btn_front, 4);
 
+
+    //para cadastro da nova senha
+    start_cadastro_senha = select('#start_pw');
+
+
     // Gambiarra (corrigir melhorando CSS)
     let pg = createP("<br><br><br>");
 
@@ -42,6 +51,8 @@ function setup() {
     btn_left.mousePressed(addExample);
     btn_right.mousePressed(addExample);
     btn_front.mousePressed(addExample);
+
+    start_cadastro_senha.mousePressed(botao_testeee);
 
 
     // Ativa vídeo
@@ -76,6 +87,8 @@ function draw() {
     fill("green");
     text(label, 5, 20);
     fill(255);
+
+
 }
 
 function criaBotao(var_btn, dir){
@@ -144,5 +157,10 @@ function gotResults(error, results) {
   }
   label = results[0].label;
   classifyVideo();
+}
+
+function botao_testeee (){
+    x++;
+    console.log(x);
 }
 
