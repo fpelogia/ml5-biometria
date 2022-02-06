@@ -6,14 +6,16 @@ var btn_front;
 var name_btn = ['CIMA', 'BAIXO', 'ESQUERDA', 'DIREITA', 'FRENTE'];
 var cor = '#b52d24';
 var status_txt = "Bloqueado";
-var ok_brn;
 var estado = 0;
+var save_btn;
+var file_inp;
+var loaded_data;
 
 let video;
 let videoSize = 64;
 let ready = false;
 
-let pixelBrain;
+let model;
 let label = '';
 
 
@@ -40,7 +42,16 @@ function setup() {
 
 
     // Gambiarra (corrigir melhorando CSS)
-    let pg = createP("<br><br><br>");
+    let pg = createP("<br>");
+
+    // Botão para salvar dados de treinamento
+    train_btn = select('#download_btn');
+    train_btn.mousePressed(salvaDados);
+
+    // Entrada de arquivo com dados de treinamento
+    file_inp = select("#upload_file")
+    file_inp.elt.value = '';
+    file_inp.changed(carregaDados);
 
     // Botão para treinar modelo
     train_btn = select('#train_btn');
@@ -52,7 +63,8 @@ function setup() {
     btn_right.mousePressed(addExample);
     btn_front.mousePressed(addExample);
 
-    start_cadastro_senha.mousePressed(botao_testeee);
+    // Gambiarra (corrigir melhorando CSS)
+    let pg2 = createP("<br><br>");
 
 
     // Ativa vídeo
@@ -65,8 +77,9 @@ function setup() {
       inputs: [64, 64, 4],
       task: 'imageClassification',
       debug: true,
+      learning_rate: 0.5
     };
-    pixelBrain = ml5.neuralNetwork(options);
+    model = ml5.neuralNetwork(options);
 
     // Pinta background
     background(cor);
@@ -83,7 +96,7 @@ function draw() {
     }
 
     textSize(20);
-    textAlign(LEFT, LEFT);
+    textAlign(LEFT, CENTER);
     fill("green");
     text(label, 5, 20);
     fill(255);
@@ -118,25 +131,35 @@ function addExample() {
     label,
   };
   console.log('Novo exemplo: ' + label);
-  pixelBrain.addData(inputImage, target);
+
+  console.log(`ADD DATA : xs =$ ${inputImage}, ys =$ ${target}`)
+  console.log(inputImage)
+  model.addData(inputImage, target);
 }
 
 function loaded() {
-  pixelBrain.train(
+    
+  model.train(
     {
-      epochs: 50,
+      epochs: 40,
     },
     finishedTraining
   );
 }
+
 function treinaModelo(){
-    pixelBrain.normalizeData();
-    pixelBrain.train(
+    model.normalizeData();
+    model.train(
       {
-        epochs: 50,
+        epochs: 40,
       },
       finishedTraining
     );
+}
+
+function salvaDados(){
+    // Salva dados coletados em um arquivo .json
+    model.saveData("dados-treinamento");
 }
 
 function finishedTraining() {
@@ -148,7 +171,7 @@ function classifyVideo() {
   let inputImage = {
     image: video,
   };
-  pixelBrain.classify(inputImage, gotResults);
+  model.classify(inputImage, gotResults);
 }
 
 function gotResults(error, results) {
@@ -159,8 +182,8 @@ function gotResults(error, results) {
   classifyVideo();
 }
 
-function botao_testeee (){
-    x++;
-    console.log(x);
+function carregaDados(file){
+    // Carrega dados a partir de arquivo .json
+    model.loadData(file_inp.elt.files);
 }
 
