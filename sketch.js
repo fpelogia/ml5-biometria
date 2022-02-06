@@ -20,7 +20,12 @@ let label = '';
 
 
 let start_cadastro_senha;
-let x;
+let end_cadastro_senha;
+let testa_acesso;
+
+let vetor = []
+
+
 
 function setup() {
     // Cria canvas
@@ -36,9 +41,6 @@ function setup() {
     btn_right = criaBotao(btn_right, 3);
     btn_front = criaBotao(btn_front, 4);
 
-
-    //para cadastro da nova senha
-    start_cadastro_senha = select('#start_pw');
 
 
     // Gambiarra (corrigir melhorando CSS)
@@ -63,8 +65,19 @@ function setup() {
     btn_right.mousePressed(addExample);
     btn_front.mousePressed(addExample);
 
-    // Gambiarra (corrigir melhorando CSS)
-    let pg2 = createP("<br><br>");
+
+
+    //para cadastro da nova senha
+    start_cadastro_senha = select('#start_pw');
+    start_cadastro_senha.mousePressed(cadastra_senha);
+
+    end_cadastro_senha = select('#end_pw')
+    end_cadastro_senha.mousePressed(cadastra_senha);
+
+    testa_acesso = select('#guess_pw');
+    testa_acesso.mousePressed(testa_acesso_sistema);
+
+
 
 
     // Ativa vídeo
@@ -185,5 +198,15 @@ function gotResults(error, results) {
 function carregaDados(file){
     // Carrega dados a partir de arquivo .json
     model.loadData(file_inp.elt.files);
+function cadastra_senha (){
+    
+	console.log (label);
+
 }
 
+
+
+function testa_acesso_sistema (){
+
+
+}
