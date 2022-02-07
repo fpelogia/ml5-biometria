@@ -11,34 +11,76 @@
   <script src="https://unpkg.com/ml5@0.6.1/dist/ml5.min.js"></script>
   <!-- <script src="../addons/p5.sound.js"></script> -->
   <script src="sketch.js"></script>
-
 </head>
 
 <body>
-    <header>
-        <h1 id="titulo">Desbloqueio por movimentos</h1>
-    </header>
-    <br>
-    <div id="canvasP5">
-        <!-- Canvas -->
+    <div class="container">
+        <div class="row">
+            <header>
+                <div id="titulo">Desbloqueio por movimentos</div>
+            </header>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <h2>Cadastro de senha e treinamento do modelo</h2>
+            </div>
+        </div>
+        <div class="row" style="text-align: right;">
+            <div class="col-sm">
+                <div class='p5canvas' id='sketch-holder'>
+                    <!-- Canvas vai aqui! -->
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="row">
+                    <p>1. Cadastre uma senha tirando fotos:</p>
+                </div>
+                <div class="row">
+                    <button id="start_pw">Começar cadastro de senha</button>
+                    <button id="end_pw">Terminar cadastro de senha</button>
+                </div>
+                <div class="row">
+                    <p>2. Cadastre suas fotos para treinamento do modelo:</p>
+                </div>
+                <div class="row">
+                    <button id="btn_up">CIMA</button>
+                    <button id="btn_down">BAIXO</button>
+                    <button id="btn_left">ESQUERDA</button>
+                    <button id="btn_right">DIREITA</button>
+                    <button id="btn_front">FRENTE</button>
+                </div>
+                <div class="row">
+                    <p>3. Treine o modelo com a sua senha:</p>
+                </div>
+                <div class="row">
+                    <button class="ok_btn" id="train_btn">Treinar Modelo</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <p>Upload de dados de treinamento (opcional):</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <input type="file" id="upload_file" value=""> </input>
+            </div>
+        </div>
+        <row>
+            <div class="col-sm">
+                <h2>Teste da senha</h2>
+            </div>
+        </row>
+        <div class="row">
+            <div class="col-sm">
+                <button class="ok_btn" id="guess_pw">Tentar desbloqueio</button>
+                <button class="ok_btn" id="download_btn">Baixar dados</button>
+            </div>
+        </div>
     </div>
-    <button class="ok_btn" id="train_btn">Treinar Modelo</button>
-    <br>
-    <button id="start_pw">Começar cadastro de senha</button>
-    <button id="end_pw">Terminar cadastro de senha</button>
-    <br>
-    <br>
-    <button class="ok_btn" id="guess_pw">Tentar desbloqueio</button>
-    <button class="ok_btn" id="download_btn">Baixar dados</button>
-    <br>
-    <p>Upload de dados de treinamento (opcional):</p><br>
-    <input type="file" id="upload_file" value=""> </input>
-    <br><br>
     <footer>
-
-    <!--  === Tentar corrigir CSS do footer dps ===
         Segurança da Informação 2021.2
-    -->
     </footer>
 </body>
 

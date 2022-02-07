@@ -31,21 +31,22 @@ let senha_teste = [];
 function setup() {
     // Cria canvas
     var cnv = createCanvas(350, 300);
-    cnv.style('margin-left', '50%');
-    cnv.style('margin-top', '5%');
-    let p = createP('<br>Cadastre suas fotos para treinamento do modelo:');
-    p.style('font-size', '16px');
+    cnv.parent('sketch-holder');
+    cnv.style('margin-left', '0%');
+    cnv.style('margin-top', '0%');
     // Cria botões
+    /*
     btn_up = criaBotao(btn_up, 0);
     btn_down = criaBotao(btn_down, 1);
     btn_left = criaBotao(btn_left, 2);
     btn_right = criaBotao(btn_right, 3);
     btn_front = criaBotao(btn_front, 4);
-
-
-
-    // Gambiarra (corrigir melhorando CSS)
-    let pg = createP("<br>");
+    */
+    btn_up =    select('#btn_up');
+    btn_down =  select('#btn_down');
+    btn_left =  select('#btn_left');
+    btn_right = select('#btn_right');
+    btn_front = select('#btn_front');
 
     // Botão para salvar dados de treinamento
     train_btn = select('#download_btn');
@@ -59,13 +60,12 @@ function setup() {
     // Botão para treinar modelo
     train_btn = select('#train_btn');
     train_btn.mousePressed(treinaModelo);
-
+    
     btn_up.mousePressed(addExample);
     btn_down.mousePressed(addExample);
     btn_left.mousePressed(addExample);
     btn_right.mousePressed(addExample);
     btn_front.mousePressed(addExample);
-
 
 
     //para cadastro da nova senha
