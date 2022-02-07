@@ -91,7 +91,7 @@ function setup() {
       inputs: [videoSize, videoSize, 4], // 64x64x4 (R G B alpha)
       task: 'imageClassification',
       debug: true,
-      learning_rate: 0.2, //valor padrão do ml5
+      learning_rate: 0.5, //valor padrão do ml5
     };
     model = ml5.neuralNetwork(options);
 
@@ -153,6 +153,7 @@ function treinaModelo(){
     model.train(
       {
         epochs: 40,
+        batchSize: 16,
       },
       finishedTraining
     );
