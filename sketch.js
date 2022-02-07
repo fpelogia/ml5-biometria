@@ -23,7 +23,8 @@ let start_cadastro_senha;
 let end_cadastro_senha;
 let testa_acesso;
 
-let vetor = []
+let senha_cadastrada = [];
+let senha_teste = [];
 
 
 
@@ -68,13 +69,13 @@ function setup() {
 
 
     //para cadastro da nova senha
-    start_cadastro_senha = select('#start_pw');
+    start_cadastro_senha = select('#start_pw'); //flag 0 para cadastro
     start_cadastro_senha.mousePressed(cadastra_senha);
 
-    end_cadastro_senha = select('#end_pw')
+    end_cadastro_senha = select('#end_pw'); //flag 1 para end cadastro
     end_cadastro_senha.mousePressed(cadastra_senha);
 
-    testa_acesso = select('#guess_pw');
+    testa_acesso = select('#guess_pw'); 
     testa_acesso.mousePressed(testa_acesso_sistema);
 
 
@@ -123,17 +124,17 @@ function criaBotao(var_btn, dir){
     return var_btn;
 }
 
-function confirmaBtn(){
-    if(estado == 0){
-        cor = '#39b524';
-        status_txt = 'Desbloqueado';    
-    }else{
-        cor = '#b52d24';
-        status_txt = 'Bloqueado';
-    }
-    estado = 1 - estado;
-
+function libera_acesso(){
+    cor = '#39b524';
+    status_txt = 'Desbloqueado';    
 }
+
+function bloqueia_acesso(){
+    cor = '#b52d24';
+    status_txt = 'Bloqueado';
+}
+
+
 
 function addExample() {
   var label = this.elt.innerText;
@@ -144,9 +145,6 @@ function addExample() {
     label,
   };
   console.log('Novo exemplo: ' + label);
-
-  console.log(`ADD DATA : xs =$ ${inputImage}, ys =$ ${target}`)
-  console.log(inputImage)
   model.addData(inputImage, target);
 }
 
@@ -198,9 +196,18 @@ function gotResults(error, results) {
 function carregaDados(file){
     // Carrega dados a partir de arquivo .json
     model.loadData(file_inp.elt.files);
+}
+
+
+
 function cadastra_senha (){
     
-	console.log (label);
+	if (this.elt.id === "start_pw"){ //cadastro adiciona na senha
+		senha_cadastrada.push(label);
+	}
+	else if (this.elt.id === "end_pw") { //aqui que talvez seja melhor deixar automatico
+		senha_teste.push(label);
+	}
 
 }
 
@@ -208,5 +215,14 @@ function cadastra_senha (){
 
 function testa_acesso_sistema (){
 
+	if (JSON.stringify(senha_cadastrada) === JSON.stringify(senha_teste)){ //retorna true quando for igual
+		libera_acesso();
+		senha_teste = [];
+	}
+
+	else{
+		bloqueia_acesso();
+		senha_teste = [];
+	}
 
 }
