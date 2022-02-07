@@ -88,10 +88,10 @@ function setup() {
 
     // ML5
     let options = {
-      inputs: [64, 64, 4],
+      inputs: [videoSize, videoSize, 4], // 64x64x4 (R G B alpha)
       task: 'imageClassification',
       debug: true,
-      learning_rate: 0.5
+      learning_rate: 0.2, //valor padrão do ml5
     };
     model = ml5.neuralNetwork(options);
 
@@ -146,16 +146,6 @@ function addExample() {
   };
   console.log('Novo exemplo: ' + label);
   model.addData(inputImage, target);
-}
-
-function loaded() {
-    
-  model.train(
-    {
-      epochs: 40,
-    },
-    finishedTraining
-  );
 }
 
 function treinaModelo(){
@@ -215,12 +205,12 @@ function cadastra_senha (){
 
 function testa_acesso_sistema (){
 
-	if (JSON.stringify(senha_cadastrada) === JSON.stringify(senha_teste)){ //retorna true quando for igual
+    // Se a senha cadastrada não for vazia
+    // e a senha inserida for igual à cadastrada
+	if (senha_cadastrada.length != 0 && (JSON.stringify(senha_cadastrada) === JSON.stringify(senha_teste))){ 
 		libera_acesso();
 		senha_teste = [];
-	}
-
-	else{
+	}else{
 		bloqueia_acesso();
 		senha_teste = [];
 	}
