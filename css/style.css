@@ -1,46 +1,21 @@
 :root {
   --fore-color: #2e3440;
-  --secondary-fore-color: #3b4252;
   --back-color: #e1d9d2;
-  --secondary-back-color: #e5e9f0;
-  --blockquote-color: #d08770;
-  --pre-color: #b48ead;
-  --border-color: #d8dee9;
-  --secondary-border-color: #e5e9f0;
   --heading-ratio: 1.19;
   --universal-margin: 0.5rem;
   --universal-padding: 0.5rem;
-  --universal-border-radius: 0.125rem;
-  --form-back-color: #e5e9f0;
-  --form-fore-color: #2e3440;
-  --form-border-color: #e5e9f0;
-  --input-back-color: #eceff4;
-  --input-fore-color: #2e3440;
-  --input-border-color: #e5e9f0;
-  --input-focus-color: #88c0d0;
-  --input-invalid-color: #bf616a;
   --button-back-color: #e5e9f0;
   --button-hover-back-color: #d8dee9;
   --button-fore-color: #2e3440;
   --button-border-color: #000000;
   --button-hover-border-color: #000000;
   --header-back-color: #a58d78;
-  --header-hover-back-color: #e5e9f0;
   --header-fore-color: #3b4252;
   --header-border-color: #e5e9f0;
-  --nav-back-color: #eceff4;
-  --nav-hover-back-color: #e5e9f0;
-  --nav-fore-color: #3b4252;
-  --nav-border-color: #e5e9f0;
-  --nav-link-color: #88c0d0;
   --footer-fore-color: #3b4252;
   --footer-back-color: #a58d78;
   --footer-border-color: #e5e9f0;
   --footer-link-color: #88c0d0;
-  --drawer-back-color: #eceff4;
-  --drawer-hover-back-color: #e5e9f0;
-  --drawer-border-color: #e5e9f0;
-  --drawer-close-color: #3b4252;
 }
 
 html {
