@@ -27,20 +27,13 @@
         </div>
         <div class="row" style="text-align: right;">
             <div class="col-sm">
-                <div class='p5canvas' id='sketch-holder'>
+                <div class='p5Canvas' id='sketch-holder'>
                     <!-- Canvas vai aqui! -->
                 </div>
             </div>
             <div class="col-sm">
                 <div class="row">
-                    <p>1. Cadastre uma senha tirando fotos:</p>
-                </div>
-                <div class="row">
-                    <button id="start_pw">Começar cadastro de senha</button>
-                    <button id="end_pw">Terminar cadastro de senha</button>
-                </div>
-                <div class="row">
-                    <p>2. Cadastre suas fotos para treinamento do modelo:</p>
+                    <p>1. Cadastre suas fotos para o treinamento do modelo:</p>
                 </div>
                 <div class="row">
                     <button id="btn_up">CIMA</button>
@@ -49,22 +42,26 @@
                     <button id="btn_right">DIREITA</button>
                     <button id="btn_front">FRENTE</button>
                 </div>
+                <div class="row" style="text-align: left;">
+                    <div class="col-sm">
+                        <p>Upload de dados de treinamento (opcional):</p>
+                        <input type="file" id="upload_file" value=""> </input>
+                    </div>
+                </div>
                 <div class="row">
-                    <p>3. Treine o modelo com a sua senha:</p>
+                    <p>2. Treine o modelo com as suas fotos:</p>
                 </div>
                 <div class="row">
                     <button class="ok_btn" id="train_btn">Treinar Modelo</button>
+                    <button class="ok_btn" id="download_btn">Baixar dados</button>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <p>Upload de dados de treinamento (opcional):</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <input type="file" id="upload_file" value=""> </input>
+                <div class="row">
+                    <p>3. Cadastre a sua senha:</p>
+                </div>
+                <div class="row">
+                    <button id="start_pw">Cadastrar uma senha</button>
+                    <button id="end_pw">Entrar com a senha</button>
+                </div>
             </div>
         </div>
         <row>
@@ -75,7 +72,6 @@
         <div class="row">
             <div class="col-sm">
                 <button class="ok_btn" id="guess_pw">Tentar desbloqueio</button>
-                <button class="ok_btn" id="download_btn">Baixar dados</button>
             </div>
         </div>
     </div>

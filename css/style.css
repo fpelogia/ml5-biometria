@@ -58,8 +58,8 @@ header {
   white-space: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
-  position: -webkit-sticky;
-  position: sticky;
+  
+  position: relative;
   z-index: 1101;
   top: 0;
   width: 100vw;
@@ -67,9 +67,11 @@ header {
 }
 
 #titulo{
-  font-family:Helvetica;
+  font-family: Helvetica;
   font-size: calc(1rem * var(--heading-ratio) * var(--heading-ratio) * var(--heading-ratio) * var(--heading-ratio) * var(--heading-ratio));
   margin: auto;
+  color: #010001;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -82,28 +84,9 @@ h1 {
   font-size: calc(1rem * var(--heading-ratio) * var(--heading-ratio) * var(--heading-ratio) * var(--heading-ratio));
 }
 
-h1 {
-  font-size: calc(1rem * var(--heading-ratio) * var(--heading-ratio) * var(--heading-ratio) * var(--heading-ratio));
-}
-
 h2 {
   font-size: calc(1rem * var(--heading-ratio) * var(--heading-ratio) * var(--heading-ratio));
-}
-
-h3 {
-  font-size: calc(1rem * var(--heading-ratio) * var(--heading-ratio));
-}
-
-h4 {
-  font-size: calc(1rem * var(--heading-ratio));
-}
-
-h5 {
-  font-size: 1rem;
-}
-
-h6 {
-  font-size: calc(1rem / var(--heading-ratio));
+  color: #2b0504;
 }
 
 p {
@@ -161,8 +144,9 @@ a[role="button"]:focus, label[role="button"]:hover, label[role="button"]:focus, 
   border-color: var(--button-hover-border-color);
 }
 
-#p5Canvas{
-    margin-top:150px;
+.p5Canvas{
+    margin-top: 40px;
+    margin-bottom: 5px;
 }
 
 /*
