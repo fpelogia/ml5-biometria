@@ -60,7 +60,7 @@ header {
   overflow-y: hidden;
   
   position: relative;
-  z-index: 1101;
+  z-index: auto;
   top: 0;
   width: 100vw;
   margin-bottom: 10px;
